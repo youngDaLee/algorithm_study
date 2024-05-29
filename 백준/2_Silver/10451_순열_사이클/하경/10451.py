@@ -7,6 +7,7 @@ result = [] # 결과 리스트
 cycle = []  # 각 사이클
 flag = False
 
+
 # 순열 전체 숫자에 대해 탐색
 for i in range(0, len(a)):
     # 해당 숫자가 이미 다른 사이클에 속해 있는지 탐색
