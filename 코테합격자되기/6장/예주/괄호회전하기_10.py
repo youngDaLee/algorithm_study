@@ -25,6 +25,3 @@ def solution(s):
 
 print(solution("[](){}"))
 print(solution("}]()[{"))
-
-# 6 
-# [ 
