@@ -19,19 +19,26 @@
 
 from collections import deque
 def solution(progresses, speeds):
-    # progresses에서 하나 빼와서 -> 작업이 완료될때까지 반복 
-    day = 0
+
     answer = []
-    while progresses: # 남은 작업이 없을때까지 수행
-        current_progress = progresses.pop(0)
-        current_speed = speeds.pop(0)
-        
-        while current_progress < 100:  #100% 이상 될때까지 수행
-            day += 1  
-            current_progress += current_speed
-        answer.append(day)
-        
+    progress_queue = deque(progresses)
+    speeds_queue = deque(speeds)
     
+    time = 0
+    count = 0
+    
+    while len(progress_queue) > 0: 
+        if (progress_queue[0] + time * speeds_queue[0]) >= 100:  ## 종료 가능한지 확인 
+            progress_queue.popleft()
+            speeds_queue.popleft()
+            count += 1 
+        else: 
+            if count > 0:
+                answer.append(count)
+                count = 0
+            time += 1 
+            
+    answer.append(count)
     return answer
 
 print(solution([93, 30, 55],[1, 30, 5]))
