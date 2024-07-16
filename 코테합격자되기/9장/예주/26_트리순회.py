@@ -6,13 +6,35 @@
 # 전위 root - L - R 
 def preorder(nodes, idx): 
     if idx < len(nodes): 
-        value = str(nodes[idx]) + " " 
-        value += preorder(nodes, idx * 2+1) ## 왼쪽 자식노드 
-        value += preorder(nodes, idx * 2+2) ## 오른쪽 자식노드
+        value = str(nodes[idx]) + " " ## Root 
+        value += preorder(nodes, idx * 2+1) ## L 탐색
+        value += preorder(nodes, idx * 2+2) ## R 탐색 
         return value 
+        # 1 2 4 5 3 6 7
     else: 
         return ""
 
+
+# 중위 L - Root - R 
+def inorder(nodes, idx): 
+    if idx < len(nodes): 
+        value = inorder(nodes, idx * 2+1) # L 먼저 탐색 
+        value += str(nodes[idx]) + " " # 루트 탐색 
+        value += inorder(nodes, idx * 2+2) # R탐색 
+        return value 
+    else: 
+        return ""
+    
+# 후위 L - R - Root 
+def postorder(nodes, idx): 
+    if idx < len(nodes):
+        value = postorder(nodes, idx * 2+1)  
+        value = postorder(nodes, idx * 2+2) 
+        value = str(nodes[idx]) + " " ## Root 
+        return value 
+         
+    else: 
+        return ""
 def solution(nodes): 
     
     return preorder(nodes,0)
