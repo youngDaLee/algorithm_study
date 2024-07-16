@@ -35,8 +35,8 @@ def postorder(nodes, idx):
          
     else: 
         return ""
-def solution(nodes): 
     
+def solution(nodes): 
     return preorder(nodes,0)
 
 
