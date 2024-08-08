@@ -7,13 +7,13 @@ class Node:
     node 클래스
     '''
     def __init__(self, key):
-        self.left = None
-        self.right = None
+        self.left = None # NODE
+        self.right = None # NODE
         self.val = key
 
 class BST:
     def __init__(self):
-        self.root = None
+        self.root = None # NODE
 
     def insert(self, key):
         # 루트가 비어있으면(첫 삽입) 루트노드로 설정
