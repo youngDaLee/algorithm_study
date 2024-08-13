@@ -10,7 +10,7 @@ def solution(n, words):
     while True:
         # 사람 Loop
         for person in range(n): # 몇 번째 사람인지
-            # 단어의 앞뒤가 아어지지 않거나, 해당 단어가 앞에 이미 나왔을 때
+            # 단어의 앞뒤가 이어지지 않거나, 해당 단어가 앞에 이미 나왔을 때
             if idx > 0 and words[idx][0] != words[idx-1][-1] or words[idx] in words[:idx]:
                 answer.append(person+1) # 몇 번째 사람인지 append
                 answer.append(count) # 몇 번째 차례인지 append
