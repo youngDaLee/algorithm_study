@@ -1,6 +1,8 @@
 '''
 다리 건설 비용 costs
 최소 비용으로 모든 섬이 통행하는 solution
+
+O(n)
 '''
 def solution(n, costs):
     answer = 0
@@ -9,7 +11,6 @@ def solution(n, costs):
     costs.sort(key=lambda x:x[2])
     island = set([costs[0][0]])
 
-    # 모든 섬 탐색
     while len(island) != n:
         for cost in costs:
             if cost[0] in island and cost[1] in island:
